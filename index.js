@@ -1,4 +1,8 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const http = require('http');
+http.createServer((req, res) => {
+  res.write("I'm alive");
+  res.end();
+}).listen(8080);const { Client, GatewayIntentBits } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require('@discordjs/voice');
 const play = require('play-dl');
 
@@ -45,5 +49,6 @@ client.on('messageCreate', async (message) => {
         message.reply("يوتيوب معلق شوي، جرب مرة ثانية.");
     }
 });
+
 
 client.login(process.env.DISCORD_TOKEN);
